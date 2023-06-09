@@ -1,10 +1,14 @@
-import { useNavigate } from "react-router-dom";
+import {useRef} from 'react'
+import { useDispatch } from 'react-redux';
+import { loginThunk } from '../../../redux/user-profile/user-profile.thunk';
+
 
 function LoginForm() {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const emailRef = useRef();
 
   const login = (e) => {
-    navigate("/home");
+    dispatch(loginThunk({email: emailRef.current.value}))
     e.preventDefault();
   };
 
@@ -16,6 +20,7 @@ function LoginForm() {
           type="email"
           placeholder="Enter email..."
           className="outline-none py-3 px-4 rounded-lg border-2 w-full"
+          ref={emailRef}
         />
       </div>
       <div className="text-right">

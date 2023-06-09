@@ -1,11 +1,10 @@
-import Header from "../../layouts/header";
-import MainLayout from "../../layouts/main-layout";
 
 function Home() {
-    return <>
-        <Header/>
-        <MainLayout/>
-    </>;
+  return (
+    <div className="min-h-screen flex justify-center items-center">
+      <p className="text-3xl font-semibold">Home</p>
+    </div>
+  );
 }
 
 export default Home;
